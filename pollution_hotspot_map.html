@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_7a5651dbba9b95e2a9da0ecee5150ee1 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/python-visualization/folium@main/folium/templates/leaflet_heat.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_7a5651dbba9b95e2a9da0ecee5150ee1" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_7a5651dbba9b95e2a9da0ecee5150ee1 = L.map(
+                "map_7a5651dbba9b95e2a9da0ecee5150ee1",
+                {
+                    center: [22.5, 79.5],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 5,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1f11c0cfbb875a85230ea9d56a405f23 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_1f11c0cfbb875a85230ea9d56a405f23.addTo(map_7a5651dbba9b95e2a9da0ecee5150ee1);
+        
+    
+            var heat_map_6fc76f03e61ea8491a78bc3c43a1ddc7 = L.heatLayer(
+                [[28.6139, 77.209, 205.09278350515464], [28.6692, 77.4538, 196.14150943396226], [25.5941, 85.1376, 185.58064516129033], [28.5355, 77.391, 182.93617021276594], [26.4499, 80.3319, 181.21153846153845], [28.9845, 77.7064, 179.73333333333332], [28.4595, 77.0266, 176.33333333333334], [28.4089, 77.3178, 163.8988764044944], [26.8467, 80.9462, 159.28865979381445], [21.2514, 81.6296, 157.1978021978022], [30.901, 75.8573, 157.0648148148148], [28.367, 79.4304, 156.6893203883495], [25.3176, 82.9739, 155.87058823529412], [23.0225, 72.5714, 155.340206185567], [31.326, 75.5762, 153.1727272727273], [27.1767, 78.0081, 153.1238095238095], [26.2389, 73.0243, 152.97802197802199], [25.4358, 81.8463, 149.27551020408163], [25.2138, 75.8648, 146.6315789473684], [26.7606, 83.3732, 146.28571428571428], [31.634, 74.8723, 144.26785714285714], [22.5726, 88.3639, 143.63917525773195], [26.9124, 75.7873, 140.7319587628866], [26.2183, 78.1828, 138.7710843373494], [21.1702, 72.8311, 136.41052631578947], [19.076, 72.8777, 134.74789915966386], [30.7333, 76.7794, 132.9278350515464], [22.3072, 73.1812, 131.48809523809524], [21.1458, 79.0882, 128.71028037383178], [17.385, 78.4867, 124.93069306930693], [23.2599, 77.4126, 124.53], [22.3039, 70.8022, 123.0990099009901], [23.3441, 85.3096, 122.69369369369369], [32.7266, 74.857, 120.21739130434783], [23.1815, 79.9864, 119.3913043478261], [17.6868, 83.2185, 118.125], [18.5204, 73.8567, 116.62352941176471], [20.2961, 85.8245, 116.01834862385321], [26.1445, 91.7362, 115.28155339805825], [13.0827, 80.2707, 112.81443298969072], [30.3165, 78.0322, 112.16666666666667], [19.9975, 73.7898, 111.6969696969697], [22.7196, 75.8577, 107.14583333333333], [34.0837, 74.7973, 101.29292929292929], [9.9252, 78.1198, 90.75257731958763], [12.9716, 77.5946, 82.32758620689656], [12.2958, 76.6394, 78.80373831775701], [9.9312, 76.2673, 75.58426966292134], [8.5241, 76.9366, 74.60952380952381], [11.0168, 76.9558, 70.06741573033707]],
+                {
+  "minOpacity": 0.35,
+  "maxZoom": 10,
+  "radius": 22,
+  "blur": 18,
+}
+            );
+        
+    
+            heat_map_6fc76f03e61ea8491a78bc3c43a1ddc7.addTo(map_7a5651dbba9b95e2a9da0ecee5150ee1);
+        
+    
+            var marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8 = L.markerClusterGroup(
+                {
+}
+            );
+        
+    
+            var circle_marker_d9fa98cd00fa27075b6d3fe27bb880a3 = L.circleMarker(
+                [28.6139, 77.209],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.672852233676975, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_dc930138332fafbc74a5f4d960f09678 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2cc1c7897053030985d43db0e31795d4 = $(`<div id="html_2cc1c7897053030985d43db0e31795d4" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Delhi (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:red; font-weight:bold;">205.1</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>105.7 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>201.2 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>35.0%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_dc930138332fafbc74a5f4d960f09678.setContent(html_2cc1c7897053030985d43db0e31795d4);
+            
+        
+
+        circle_marker_d9fa98cd00fa27075b6d3fe27bb880a3.bindPopup(popup_dc930138332fafbc74a5f4d960f09678)
+        ;
+
+        
+    
+    
+            var circle_marker_9bb9bb58010ae54e6896300e59b0c046 = L.circleMarker(
+                [28.6692, 77.4538],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.076100628930817, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_f8644edc57f78094180068b4c66ca5c3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ec237e4ce859c0e1f366a6d0c992cb9b = $(`<div id="html_ec237e4ce859c0e1f366a6d0c992cb9b" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Ghaziabad (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:red; font-weight:bold;">196.1</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>98.2 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>186.5 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>29.2%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_f8644edc57f78094180068b4c66ca5c3.setContent(html_ec237e4ce859c0e1f366a6d0c992cb9b);
+            
+        
+
+        circle_marker_9bb9bb58010ae54e6896300e59b0c046.bindPopup(popup_f8644edc57f78094180068b4c66ca5c3)
+        ;
+
+        
+    
+    
+            var circle_marker_7e7f7f7288864aa95722560a6c1c5c7f = L.circleMarker(
+                [25.5941, 85.1376],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.372043010752689, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_8a3a6e0c6f313d083d98194cbd2566c8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5e3d1411875729d3eb7bf461ac414b43 = $(`<div id="html_5e3d1411875729d3eb7bf461ac414b43" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Patna (East)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:red; font-weight:bold;">185.6</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>90.2 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>173.5 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>22.6%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_8a3a6e0c6f313d083d98194cbd2566c8.setContent(html_5e3d1411875729d3eb7bf461ac414b43);
+            
+        
+
+        circle_marker_7e7f7f7288864aa95722560a6c1c5c7f.bindPopup(popup_8a3a6e0c6f313d083d98194cbd2566c8)
+        ;
+
+        
+    
+    
+            var circle_marker_d6adb84abd39c71cae53e16fd82e2e56 = L.circleMarker(
+                [28.5355, 77.391],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.195744680851062, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_62859146face12fd5e859baedb6af69c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_04c0908bfd0a5bb0876cf31b1a713e0a = $(`<div id="html_04c0908bfd0a5bb0876cf31b1a713e0a" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Noida (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:red; font-weight:bold;">182.9</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>85.9 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>166.2 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>23.4%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_62859146face12fd5e859baedb6af69c.setContent(html_04c0908bfd0a5bb0876cf31b1a713e0a);
+            
+        
+
+        circle_marker_d6adb84abd39c71cae53e16fd82e2e56.bindPopup(popup_62859146face12fd5e859baedb6af69c)
+        ;
+
+        
+    
+    
+            var circle_marker_1ded0f7c0ccacb424c3486af6b3ce28d = L.circleMarker(
+                [26.4499, 80.3319],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.08076923076923, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_6d275ccfe0b84f81d0fe2b1b13e8e53a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1a53446b93fa0bf803f3ca52d26e4977 = $(`<div id="html_1a53446b93fa0bf803f3ca52d26e4977" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Kanpur (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:red; font-weight:bold;">181.2</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>88.6 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>169.3 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>22.1%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_6d275ccfe0b84f81d0fe2b1b13e8e53a.setContent(html_1a53446b93fa0bf803f3ca52d26e4977);
+            
+        
+
+        circle_marker_1ded0f7c0ccacb424c3486af6b3ce28d.bindPopup(popup_6d275ccfe0b84f81d0fe2b1b13e8e53a)
+        ;
+
+        
+    
+    
+            var circle_marker_4688027389d65a5953c56a3439d4dfd5 = L.circleMarker(
+                [28.9845, 77.7064],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.982222222222221, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_fa76456628080b5b35f4ce2eefe6189f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0c2a1200d36d65f33f07e1e0ce4edd8b = $(`<div id="html_0c2a1200d36d65f33f07e1e0ce4edd8b" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Meerut (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">179.7</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>83.1 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>162.9 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>22.9%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_fa76456628080b5b35f4ce2eefe6189f.setContent(html_0c2a1200d36d65f33f07e1e0ce4edd8b);
+            
+        
+
+        circle_marker_4688027389d65a5953c56a3439d4dfd5.bindPopup(popup_fa76456628080b5b35f4ce2eefe6189f)
+        ;
+
+        
+    
+    
+            var circle_marker_1c306a43a8ca974e7e74cb96e3b5da94 = L.circleMarker(
+                [28.4595, 77.0266],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.755555555555556, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_778f543e85059fca81f592df55b67afd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7eb1221d288b48c0efb647a6129fad27 = $(`<div id="html_7eb1221d288b48c0efb647a6129fad27" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Gurugram (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">176.3</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>85.3 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>159.5 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>20.8%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_778f543e85059fca81f592df55b67afd.setContent(html_7eb1221d288b48c0efb647a6129fad27);
+            
+        
+
+        circle_marker_1c306a43a8ca974e7e74cb96e3b5da94.bindPopup(popup_778f543e85059fca81f592df55b67afd)
+        ;
+
+        
+    
+    
+            var circle_marker_819a3e8930f7a37ef34ef64eb7cd4354 = L.circleMarker(
+                [28.4089, 77.3178],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.926591760299626, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_bdb5ec6e4ca86463739bc498ce6a3614 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0508fceffa9ae7c1244cc12bf2be1acd = $(`<div id="html_0508fceffa9ae7c1244cc12bf2be1acd" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Faridabad (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">163.9</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>80.9 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>155.0 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>23.6%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_bdb5ec6e4ca86463739bc498ce6a3614.setContent(html_0508fceffa9ae7c1244cc12bf2be1acd);
+            
+        
+
+        circle_marker_819a3e8930f7a37ef34ef64eb7cd4354.bindPopup(popup_bdb5ec6e4ca86463739bc498ce6a3614)
+        ;
+
+        
+    
+    
+            var circle_marker_d560f36d2409f2c729a9eae3ef4ed79e = L.circleMarker(
+                [26.8467, 80.9462],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.619243986254297, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_3b76c23cf7a260baa1594c678f12251b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e14982308324de7f317aab977ba3532e = $(`<div id="html_e14982308324de7f317aab977ba3532e" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Lucknow (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">159.3</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>78.1 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>146.7 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>19.6%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_3b76c23cf7a260baa1594c678f12251b.setContent(html_e14982308324de7f317aab977ba3532e);
+            
+        
+
+        circle_marker_d560f36d2409f2c729a9eae3ef4ed79e.bindPopup(popup_3b76c23cf7a260baa1594c678f12251b)
+        ;
+
+        
+    
+    
+            var circle_marker_29c6752e9ce7cb4c3b9a1c0d4e3bdf36 = L.circleMarker(
+                [21.2514, 81.6296],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.47985347985348, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_d97984c7ce0a8ffcfdf4277b09596062 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8f969df8e74402ad8da997479bdd2d4c = $(`<div id="html_8f969df8e74402ad8da997479bdd2d4c" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Raipur (Central)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">157.2</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>73.1 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>141.4 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>17.6%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_d97984c7ce0a8ffcfdf4277b09596062.setContent(html_8f969df8e74402ad8da997479bdd2d4c);
+            
+        
+
+        circle_marker_29c6752e9ce7cb4c3b9a1c0d4e3bdf36.bindPopup(popup_d97984c7ce0a8ffcfdf4277b09596062)
+        ;
+
+        
+    
+    
+            var circle_marker_ac62e6b794c72fb975d2ca4ab0536958 = L.circleMarker(
+                [30.901, 75.8573],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.470987654320988, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_a90cdbb33732c370ee777b810be249c4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_79f07d6dcf7fc79e75631353cdb5669d = $(`<div id="html_79f07d6dcf7fc79e75631353cdb5669d" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Ludhiana (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">157.1</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>75.8 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>145.6 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>16.7%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_a90cdbb33732c370ee777b810be249c4.setContent(html_79f07d6dcf7fc79e75631353cdb5669d);
+            
+        
+
+        circle_marker_ac62e6b794c72fb975d2ca4ab0536958.bindPopup(popup_a90cdbb33732c370ee777b810be249c4)
+        ;
+
+        
+    
+    
+            var circle_marker_ee73783a49bb18146740aca05326764d = L.circleMarker(
+                [28.367, 79.4304],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.445954692556633, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_7d7059e0e7184fd31254bdb115bd4c98 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a7c3cd07ae0432d35010403c5bd95b0a = $(`<div id="html_a7c3cd07ae0432d35010403c5bd95b0a" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Bareilly (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">156.7</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>75.7 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>145.6 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>16.5%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_7d7059e0e7184fd31254bdb115bd4c98.setContent(html_a7c3cd07ae0432d35010403c5bd95b0a);
+            
+        
+
+        circle_marker_ee73783a49bb18146740aca05326764d.bindPopup(popup_7d7059e0e7184fd31254bdb115bd4c98)
+        ;
+
+        
+    
+    
+            var circle_marker_a42dc39c8e70e94ad8271d238a3037ef = L.circleMarker(
+                [25.3176, 82.9739],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.391372549019609, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_bff34fb0ff94941cce6fe168e9390dae = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ab14d86973da7098b6c774098573b046 = $(`<div id="html_ab14d86973da7098b6c774098573b046" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Varanasi (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">155.9</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>74.3 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>142.4 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>15.3%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_bff34fb0ff94941cce6fe168e9390dae.setContent(html_ab14d86973da7098b6c774098573b046);
+            
+        
+
+        circle_marker_a42dc39c8e70e94ad8271d238a3037ef.bindPopup(popup_bff34fb0ff94941cce6fe168e9390dae)
+        ;
+
+        
+    
+    
+            var circle_marker_d70a31df87eb2286267987d3da22f8d8 = L.circleMarker(
+                [23.0225, 72.5714],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.356013745704468, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_84c6034ddc2add73c524fdd295576582 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_48e8f1ecf6888300f92c5592b945fbaa = $(`<div id="html_48e8f1ecf6888300f92c5592b945fbaa" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Ahmedabad (West)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">155.3</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>72.9 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>140.5 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>13.4%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_84c6034ddc2add73c524fdd295576582.setContent(html_48e8f1ecf6888300f92c5592b945fbaa);
+            
+        
+
+        circle_marker_d70a31df87eb2286267987d3da22f8d8.bindPopup(popup_84c6034ddc2add73c524fdd295576582)
+        ;
+
+        
+    
+    
+            var circle_marker_806635b388a36c35336b78afae901a80 = L.circleMarker(
+                [31.326, 75.5762],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.211515151515153, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_0054e1e355a5f6f2756e8bcbd45588b1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_795f7ce6d69318efcdac3e43dcc7d1ab = $(`<div id="html_795f7ce6d69318efcdac3e43dcc7d1ab" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Jalandhar (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">153.2</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>72.3 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>140.6 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>19.1%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_0054e1e355a5f6f2756e8bcbd45588b1.setContent(html_795f7ce6d69318efcdac3e43dcc7d1ab);
+            
+        
+
+        circle_marker_806635b388a36c35336b78afae901a80.bindPopup(popup_0054e1e355a5f6f2756e8bcbd45588b1)
+        ;
+
+        
+    
+    
+            var circle_marker_89ba36a0a70197687abf49b48cbdc7c3 = L.circleMarker(
+                [27.1767, 78.0081],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.208253968253967, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_b0a460b17b48173bb9fcc62faa9d83cb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f412898d17197198376fdc6c567b87e5 = $(`<div id="html_f412898d17197198376fdc6c567b87e5" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Agra (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">153.1</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>72.0 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>141.5 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>14.3%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_b0a460b17b48173bb9fcc62faa9d83cb.setContent(html_f412898d17197198376fdc6c567b87e5);
+            
+        
+
+        circle_marker_89ba36a0a70197687abf49b48cbdc7c3.bindPopup(popup_b0a460b17b48173bb9fcc62faa9d83cb)
+        ;
+
+        
+    
+    
+            var circle_marker_9f41af90cff5a88468221055f670162c = L.circleMarker(
+                [26.2389, 73.0243],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.1985347985348, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_1e57fa1e646d89cb972f50c1fb3988fc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fd75306f6599ccf7d5ef7f79bb9504c9 = $(`<div id="html_fd75306f6599ccf7d5ef7f79bb9504c9" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Jodhpur (West)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">153.0</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>75.4 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>142.2 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>18.7%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_1e57fa1e646d89cb972f50c1fb3988fc.setContent(html_fd75306f6599ccf7d5ef7f79bb9504c9);
+            
+        
+
+        circle_marker_9f41af90cff5a88468221055f670162c.bindPopup(popup_1e57fa1e646d89cb972f50c1fb3988fc)
+        ;
+
+        
+    
+    
+            var circle_marker_ad60c7f51c41e7042a365be89b0f62fb = L.circleMarker(
+                [25.4358, 81.8463],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.951700680272108, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_51a9313a67c11a43a0a596572770e39a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e491899ae0fc5dd6ad2a54f81aca3229 = $(`<div id="html_e491899ae0fc5dd6ad2a54f81aca3229" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Prayagraj (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">149.3</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>71.3 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>141.8 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>10.2%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_51a9313a67c11a43a0a596572770e39a.setContent(html_e491899ae0fc5dd6ad2a54f81aca3229);
+            
+        
+
+        circle_marker_ad60c7f51c41e7042a365be89b0f62fb.bindPopup(popup_51a9313a67c11a43a0a596572770e39a)
+        ;
+
+        
+    
+    
+            var circle_marker_bf9674bb0d92f189489ae49599f75e1e = L.circleMarker(
+                [25.2138, 75.8648],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.775438596491227, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_a32d9a4d248198f9e9e54a78abb83228 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_77aba10cb19e0daccff967367f03bbed = $(`<div id="html_77aba10cb19e0daccff967367f03bbed" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Kota (West)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">146.6</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>69.4 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>133.8 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>14.7%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_a32d9a4d248198f9e9e54a78abb83228.setContent(html_77aba10cb19e0daccff967367f03bbed);
+            
+        
+
+        circle_marker_bf9674bb0d92f189489ae49599f75e1e.bindPopup(popup_a32d9a4d248198f9e9e54a78abb83228)
+        ;
+
+        
+    
+    
+            var circle_marker_098448cf153cffa9bf983acef90091f9 = L.circleMarker(
+                [26.7606, 83.3732],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.752380952380951, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_a1f041f17c113409eca7cea3d3feee64 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5d27344565be708f12adc4059c38793a = $(`<div id="html_5d27344565be708f12adc4059c38793a" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Gorakhpur (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">146.3</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>69.7 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>136.4 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>15.2%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_a1f041f17c113409eca7cea3d3feee64.setContent(html_5d27344565be708f12adc4059c38793a);
+            
+        
+
+        circle_marker_098448cf153cffa9bf983acef90091f9.bindPopup(popup_a1f041f17c113409eca7cea3d3feee64)
+        ;
+
+        
+    
+    
+            var circle_marker_05713675c6a68114f6ede1674ed04240 = L.circleMarker(
+                [31.634, 74.8723],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.617857142857142, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_264695fe7e8ceefeced658be0a5f633b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a00ee45873a3b9ec497cc89cd1409bea = $(`<div id="html_a00ee45873a3b9ec497cc89cd1409bea" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Amritsar (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">144.3</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>68.6 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>131.1 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>9.8%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_264695fe7e8ceefeced658be0a5f633b.setContent(html_a00ee45873a3b9ec497cc89cd1409bea);
+            
+        
+
+        circle_marker_05713675c6a68114f6ede1674ed04240.bindPopup(popup_264695fe7e8ceefeced658be0a5f633b)
+        ;
+
+        
+    
+    
+            var circle_marker_add2e976954d747e75fe310e8437c487 = L.circleMarker(
+                [22.5726, 88.3639],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.57594501718213, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_b39ac92547b7101f31b8052e0a1ea081 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c3755c733c288aff7e035ccfbcd9e2d2 = $(`<div id="html_c3755c733c288aff7e035ccfbcd9e2d2" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Kolkata (East)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">143.6</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>67.8 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>130.9 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>11.3%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_b39ac92547b7101f31b8052e0a1ea081.setContent(html_c3755c733c288aff7e035ccfbcd9e2d2);
+            
+        
+
+        circle_marker_add2e976954d747e75fe310e8437c487.bindPopup(popup_b39ac92547b7101f31b8052e0a1ea081)
+        ;
+
+        
+    
+    
+            var circle_marker_98e8c389dc4458c14e18d323fddd9bf6 = L.circleMarker(
+                [26.9124, 75.7873],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.38213058419244, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_8ca0356b468ecdda190ed34ed022c818 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d2ba21e8a61f18e152ef23eb6060edd5 = $(`<div id="html_d2ba21e8a61f18e152ef23eb6060edd5" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Jaipur (West)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">140.7</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>66.0 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>128.5 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>7.2%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_8ca0356b468ecdda190ed34ed022c818.setContent(html_d2ba21e8a61f18e152ef23eb6060edd5);
+            
+        
+
+        circle_marker_98e8c389dc4458c14e18d323fddd9bf6.bindPopup(popup_8ca0356b468ecdda190ed34ed022c818)
+        ;
+
+        
+    
+    
+            var circle_marker_c2663667ba1d405159e8b0f2a9052b84 = L.circleMarker(
+                [26.2183, 78.1828],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.25140562248996, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_bcc32e9a02a34cd1af2a59f30bebe3e8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_800f5a1aeaa6a21ab476593dbba19098 = $(`<div id="html_800f5a1aeaa6a21ab476593dbba19098" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Gwalior (Central)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">138.8</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>66.2 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>129.7 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>10.8%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_bcc32e9a02a34cd1af2a59f30bebe3e8.setContent(html_800f5a1aeaa6a21ab476593dbba19098);
+            
+        
+
+        circle_marker_c2663667ba1d405159e8b0f2a9052b84.bindPopup(popup_bcc32e9a02a34cd1af2a59f30bebe3e8)
+        ;
+
+        
+    
+    
+            var circle_marker_f7223ea1596fb33a55cbf9c2ea8a0cf0 = L.circleMarker(
+                [21.1702, 72.8311],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.094035087719298, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_2793bb0f1333fade159566dad44c6e30 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8507c0b29e8f5b277036e1246fd25754 = $(`<div id="html_8507c0b29e8f5b277036e1246fd25754" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Surat (West)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">136.4</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>64.0 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>124.5 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>15.8%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_2793bb0f1333fade159566dad44c6e30.setContent(html_8507c0b29e8f5b277036e1246fd25754);
+            
+        
+
+        circle_marker_f7223ea1596fb33a55cbf9c2ea8a0cf0.bindPopup(popup_2793bb0f1333fade159566dad44c6e30)
+        ;
+
+        
+    
+    
+            var circle_marker_882963a8461f3d4be9d8a1b03121c7ce = L.circleMarker(
+                [19.076, 72.8777],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.983193277310924, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_1f146c2d71cf12c6f140e0031064b65a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c65510323cf2594f929a37c64f6e46be = $(`<div id="html_c65510323cf2594f929a37c64f6e46be" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Mumbai (West)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">134.7</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>65.6 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>128.7 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>10.1%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_1f146c2d71cf12c6f140e0031064b65a.setContent(html_c65510323cf2594f929a37c64f6e46be);
+            
+        
+
+        circle_marker_882963a8461f3d4be9d8a1b03121c7ce.bindPopup(popup_1f146c2d71cf12c6f140e0031064b65a)
+        ;
+
+        
+    
+    
+            var circle_marker_ac53d8c4bad5d4994300843425599bfe = L.circleMarker(
+                [30.7333, 76.7794],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.861855670103093, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_bfa1087eec8b1bc74527e93045b1ed0e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a154187e671b54f68eefb5fdda17bf0d = $(`<div id="html_a154187e671b54f68eefb5fdda17bf0d" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Chandigarh (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">132.9</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>62.4 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>124.6 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>12.4%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_bfa1087eec8b1bc74527e93045b1ed0e.setContent(html_a154187e671b54f68eefb5fdda17bf0d);
+            
+        
+
+        circle_marker_ac53d8c4bad5d4994300843425599bfe.bindPopup(popup_bfa1087eec8b1bc74527e93045b1ed0e)
+        ;
+
+        
+    
+    
+            var circle_marker_74b3d3dfef98b9f9d3a215895e91cef9 = L.circleMarker(
+                [22.3072, 73.1812],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.765873015873016, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_62e28685a7c629d054f98db593a7c6da = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c277dcea678502238058b353a7e4bdf6 = $(`<div id="html_c277dcea678502238058b353a7e4bdf6" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Vadodara (West)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">131.5</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>62.3 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>117.8 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>8.3%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_62e28685a7c629d054f98db593a7c6da.setContent(html_c277dcea678502238058b353a7e4bdf6);
+            
+        
+
+        circle_marker_74b3d3dfef98b9f9d3a215895e91cef9.bindPopup(popup_62e28685a7c629d054f98db593a7c6da)
+        ;
+
+        
+    
+    
+            var circle_marker_9a1c442b82a9258483a84d737e9f94ec = L.circleMarker(
+                [21.1458, 79.0882],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.580685358255453, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_3dcce8641b2640404704cd6ac9ad34ca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_2290e45dc07996b44e6ec4f34238f521 = $(`<div id="html_2290e45dc07996b44e6ec4f34238f521" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Nagpur (West)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">128.7</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>62.0 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>124.9 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>8.4%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_3dcce8641b2640404704cd6ac9ad34ca.setContent(html_2290e45dc07996b44e6ec4f34238f521);
+            
+        
+
+        circle_marker_9a1c442b82a9258483a84d737e9f94ec.bindPopup(popup_3dcce8641b2640404704cd6ac9ad34ca)
+        ;
+
+        
+    
+    
+            var circle_marker_3e518e527441f57bacbb771636c3eedc = L.circleMarker(
+                [17.385, 78.4867],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.328712871287129, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_135aa59969830dd04565e6e1a1fdce77 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c86086cbf76dc8854ca0eec1165ed787 = $(`<div id="html_c86086cbf76dc8854ca0eec1165ed787" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Hyderabad (South)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">124.9</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>58.9 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>117.8 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>10.9%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_135aa59969830dd04565e6e1a1fdce77.setContent(html_c86086cbf76dc8854ca0eec1165ed787);
+            
+        
+
+        circle_marker_3e518e527441f57bacbb771636c3eedc.bindPopup(popup_135aa59969830dd04565e6e1a1fdce77)
+        ;
+
+        
+    
+    
+            var circle_marker_b280cb3e16001add451e6b638f0f3507 = L.circleMarker(
+                [23.2599, 77.4126],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.302, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_0647601074bc27a516c2e0b406cc56a1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1eccd105c5b7428e866165063f9366cf = $(`<div id="html_1eccd105c5b7428e866165063f9366cf" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Bhopal (Central)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">124.5</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>58.6 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>115.6 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>9.0%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_0647601074bc27a516c2e0b406cc56a1.setContent(html_1eccd105c5b7428e866165063f9366cf);
+            
+        
+
+        circle_marker_b280cb3e16001add451e6b638f0f3507.bindPopup(popup_0647601074bc27a516c2e0b406cc56a1)
+        ;
+
+        
+    
+    
+            var circle_marker_3f32c541d9e0d08dbd8ac48f76fc3a92 = L.circleMarker(
+                [22.3039, 70.8022],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.206600660066007, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_1293195dfcc58caffd671f23de6ac01b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d0f9ee8afbe0d3411c90da40d5d39af2 = $(`<div id="html_d0f9ee8afbe0d3411c90da40d5d39af2" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Rajkot (West)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">123.1</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>59.5 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>120.9 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>8.9%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_1293195dfcc58caffd671f23de6ac01b.setContent(html_d0f9ee8afbe0d3411c90da40d5d39af2);
+            
+        
+
+        circle_marker_3f32c541d9e0d08dbd8ac48f76fc3a92.bindPopup(popup_1293195dfcc58caffd671f23de6ac01b)
+        ;
+
+        
+    
+    
+            var circle_marker_fbcece7b9d155dc2b9de1352ba668ae2 = L.circleMarker(
+                [23.3441, 85.3096],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.17957957957958, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_a303c3d7226a8085160ae7d4a596118e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c3ef63ddbff58dd88e91acca4e2faef0 = $(`<div id="html_c3ef63ddbff58dd88e91acca4e2faef0" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Ranchi (East)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">122.7</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>59.2 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>120.7 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>7.2%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_a303c3d7226a8085160ae7d4a596118e.setContent(html_c3ef63ddbff58dd88e91acca4e2faef0);
+            
+        
+
+        circle_marker_fbcece7b9d155dc2b9de1352ba668ae2.bindPopup(popup_a303c3d7226a8085160ae7d4a596118e)
+        ;
+
+        
+    
+    
+            var circle_marker_5ee94d2001073421dfd1f38342d54c01 = L.circleMarker(
+                [32.7266, 74.857],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.01449275362319, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_76c994286d5e7f777bcb0d5fc11484fe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a888d27041782b6735673fd30516ca25 = $(`<div id="html_a888d27041782b6735673fd30516ca25" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Jammu (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:orange; font-weight:bold;">120.2</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>54.9 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>113.0 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>2.2%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_76c994286d5e7f777bcb0d5fc11484fe.setContent(html_a888d27041782b6735673fd30516ca25);
+            
+        
+
+        circle_marker_5ee94d2001073421dfd1f38342d54c01.bindPopup(popup_76c994286d5e7f777bcb0d5fc11484fe)
+        ;
+
+        
+    
+    
+            var circle_marker_76fb71b9f8c4d4e2b6a658aa40fbd3bb = L.circleMarker(
+                [23.1815, 79.9864],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.959420289855073, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_2c83b45396ee37b45fa8fa46cd23b3c5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7a126200cf02f93425a39210908a15d9 = $(`<div id="html_7a126200cf02f93425a39210908a15d9" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Jabalpur (Central)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:blue; font-weight:bold;">119.4</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>56.6 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>113.3 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>7.0%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_2c83b45396ee37b45fa8fa46cd23b3c5.setContent(html_7a126200cf02f93425a39210908a15d9);
+            
+        
+
+        circle_marker_76fb71b9f8c4d4e2b6a658aa40fbd3bb.bindPopup(popup_2c83b45396ee37b45fa8fa46cd23b3c5)
+        ;
+
+        
+    
+    
+            var circle_marker_5efdb48dfd1d2e453202218f9fb5f8e0 = L.circleMarker(
+                [17.6868, 83.2185],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.875, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_de316fba6cf14f00814961e1c7b1728a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4c6369ecacc6c01e6606f6f582dfc356 = $(`<div id="html_4c6369ecacc6c01e6606f6f582dfc356" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Visakhapatnam (South)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:blue; font-weight:bold;">118.1</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>53.9 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>112.8 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>6.2%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_de316fba6cf14f00814961e1c7b1728a.setContent(html_4c6369ecacc6c01e6606f6f582dfc356);
+            
+        
+
+        circle_marker_5efdb48dfd1d2e453202218f9fb5f8e0.bindPopup(popup_de316fba6cf14f00814961e1c7b1728a)
+        ;
+
+        
+    
+    
+            var circle_marker_b01c861ce2b79a87991bab2e9bc36b5b = L.circleMarker(
+                [18.5204, 73.8567],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.774901960784314, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_333bff6b84c1b487148be2f3283f823c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7e4d5c50498e4855467b364513ebc932 = $(`<div id="html_7e4d5c50498e4855467b364513ebc932" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Pune (West)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:blue; font-weight:bold;">116.6</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>56.1 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>111.3 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>4.7%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_333bff6b84c1b487148be2f3283f823c.setContent(html_7e4d5c50498e4855467b364513ebc932);
+            
+        
+
+        circle_marker_b01c861ce2b79a87991bab2e9bc36b5b.bindPopup(popup_333bff6b84c1b487148be2f3283f823c)
+        ;
+
+        
+    
+    
+            var circle_marker_2fcf5fea576ee4759134ef3129b583c8 = L.circleMarker(
+                [20.2961, 85.8245],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.734556574923547, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_d3971f85bb23a65451278acdf9c268a2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_05cc34174b4e803360c21bda0c796907 = $(`<div id="html_05cc34174b4e803360c21bda0c796907" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Bhubaneswar (East)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:blue; font-weight:bold;">116.0</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>55.4 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>109.2 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>2.8%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_d3971f85bb23a65451278acdf9c268a2.setContent(html_05cc34174b4e803360c21bda0c796907);
+            
+        
+
+        circle_marker_2fcf5fea576ee4759134ef3129b583c8.bindPopup(popup_d3971f85bb23a65451278acdf9c268a2)
+        ;
+
+        
+    
+    
+            var circle_marker_63b8572d15c76e2066a65065a213e120 = L.circleMarker(
+                [26.1445, 91.7362],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.6854368932038835, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_08d05e6b44d48795c320437a9f8d347a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_ee4a571bcf751cbc474d0742b65bca04 = $(`<div id="html_ee4a571bcf751cbc474d0742b65bca04" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Guwahati (East)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:blue; font-weight:bold;">115.3</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>55.2 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>110.9 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>6.8%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_08d05e6b44d48795c320437a9f8d347a.setContent(html_ee4a571bcf751cbc474d0742b65bca04);
+            
+        
+
+        circle_marker_63b8572d15c76e2066a65065a213e120.bindPopup(popup_08d05e6b44d48795c320437a9f8d347a)
+        ;
+
+        
+    
+    
+            var circle_marker_7780593994af3756de33f3c13b29c0da = L.circleMarker(
+                [13.0827, 80.2707],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.520962199312715, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_1576294b6fd3b223662dee0f255c9af5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fc94dc6fdb3f101cfd44de4070e45fe0 = $(`<div id="html_fc94dc6fdb3f101cfd44de4070e45fe0" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Chennai (South)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:blue; font-weight:bold;">112.8</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>55.0 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>111.2 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>5.2%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_1576294b6fd3b223662dee0f255c9af5.setContent(html_fc94dc6fdb3f101cfd44de4070e45fe0);
+            
+        
+
+        circle_marker_7780593994af3756de33f3c13b29c0da.bindPopup(popup_1576294b6fd3b223662dee0f255c9af5)
+        ;
+
+        
+    
+    
+            var circle_marker_257500f9b05a85001dbd449f8612c588 = L.circleMarker(
+                [30.3165, 78.0322],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.477777777777778, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_a45f19fe26758eb78ed1666b2d48f069 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3f1801d611912ca7fb045934f206344d = $(`<div id="html_3f1801d611912ca7fb045934f206344d" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Dehradun (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:blue; font-weight:bold;">112.2</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>55.8 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>108.3 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>7.9%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_a45f19fe26758eb78ed1666b2d48f069.setContent(html_3f1801d611912ca7fb045934f206344d);
+            
+        
+
+        circle_marker_257500f9b05a85001dbd449f8612c588.bindPopup(popup_a45f19fe26758eb78ed1666b2d48f069)
+        ;
+
+        
+    
+    
+            var circle_marker_3c28ac73ee3d8557cdf4f94a87e96c24 = L.circleMarker(
+                [19.9975, 73.7898],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.446464646464647, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_0324a1159d3d0e4f0ce97d84db775b1d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6f3dd0b63b06066ff8d7b4a91e673a61 = $(`<div id="html_6f3dd0b63b06066ff8d7b4a91e673a61" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Nashik (West)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:blue; font-weight:bold;">111.7</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>52.8 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>104.1 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>6.1%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_0324a1159d3d0e4f0ce97d84db775b1d.setContent(html_6f3dd0b63b06066ff8d7b4a91e673a61);
+            
+        
+
+        circle_marker_3c28ac73ee3d8557cdf4f94a87e96c24.bindPopup(popup_0324a1159d3d0e4f0ce97d84db775b1d)
+        ;
+
+        
+    
+    
+            var circle_marker_c4b2a1dc5a91da4ddac2f84fa9922af7 = L.circleMarker(
+                [22.7196, 75.8577],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 7.143055555555555, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_c69edaa20efef7e25e69ee17406c1e7d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_29fa621108ad7dcbe4fbdc2c045f3f4b = $(`<div id="html_29fa621108ad7dcbe4fbdc2c045f3f4b" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Indore (Central)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:blue; font-weight:bold;">107.1</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>52.4 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>102.6 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>4.2%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_c69edaa20efef7e25e69ee17406c1e7d.setContent(html_29fa621108ad7dcbe4fbdc2c045f3f4b);
+            
+        
+
+        circle_marker_c4b2a1dc5a91da4ddac2f84fa9922af7.bindPopup(popup_c69edaa20efef7e25e69ee17406c1e7d)
+        ;
+
+        
+    
+    
+            var circle_marker_809e6de4a8e717af925975fd7ad955ca = L.circleMarker(
+                [34.0837, 74.7973],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.752861952861952, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_fc11c73cdb57fbff11994168ca660920 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_affca5b5714f1886d7a541875ed59d13 = $(`<div id="html_affca5b5714f1886d7a541875ed59d13" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Srinagar (North)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:blue; font-weight:bold;">101.3</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>46.2 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>94.2 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>4.0%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_fc11c73cdb57fbff11994168ca660920.setContent(html_affca5b5714f1886d7a541875ed59d13);
+            
+        
+
+        circle_marker_809e6de4a8e717af925975fd7ad955ca.bindPopup(popup_fc11c73cdb57fbff11994168ca660920)
+        ;
+
+        
+    
+    
+            var circle_marker_3e65af6ae8071af287df2bf50f4173d0 = L.circleMarker(
+                [9.9252, 78.1198],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6.050171821305842, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_1dfc5dfa4e27c83d53cc14d8895eec75 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e6a5d34f22e83a211353e5bdbe501a28 = $(`<div id="html_e6a5d34f22e83a211353e5bdbe501a28" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Madurai (South)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:blue; font-weight:bold;">90.8</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>43.3 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>86.3 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>3.1%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_1dfc5dfa4e27c83d53cc14d8895eec75.setContent(html_e6a5d34f22e83a211353e5bdbe501a28);
+            
+        
+
+        circle_marker_3e65af6ae8071af287df2bf50f4173d0.bindPopup(popup_1dfc5dfa4e27c83d53cc14d8895eec75)
+        ;
+
+        
+    
+    
+            var circle_marker_e5c6627c7d30bc759c9b524643b77dbd = L.circleMarker(
+                [12.9716, 77.5946],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "blue", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_6400dae0d2c4ceaa293da6cea5079b67 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_446f999276f66142a2dbdded4c900664 = $(`<div id="html_446f999276f66142a2dbdded4c900664" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Bengaluru (South)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:blue; font-weight:bold;">82.3</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>39.5 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>81.8 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>0.0%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_6400dae0d2c4ceaa293da6cea5079b67.setContent(html_446f999276f66142a2dbdded4c900664);
+            
+        
+
+        circle_marker_e5c6627c7d30bc759c9b524643b77dbd.bindPopup(popup_6400dae0d2c4ceaa293da6cea5079b67)
+        ;
+
+        
+    
+    
+            var circle_marker_b4743b935e9ef2390bcc21cea6fed32f = L.circleMarker(
+                [12.2958, 76.6394],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_e5b38660fc1700aedc353fac059dfcd4 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a84adf5bee887f583df68e4439aa9e36 = $(`<div id="html_a84adf5bee887f583df68e4439aa9e36" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Mysuru (South)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:green; font-weight:bold;">78.8</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>37.3 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>81.6 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>2.8%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_e5b38660fc1700aedc353fac059dfcd4.setContent(html_a84adf5bee887f583df68e4439aa9e36);
+            
+        
+
+        circle_marker_b4743b935e9ef2390bcc21cea6fed32f.bindPopup(popup_e5b38660fc1700aedc353fac059dfcd4)
+        ;
+
+        
+    
+    
+            var circle_marker_0d62348b23655cd535931c5f79b56639 = L.circleMarker(
+                [9.9312, 76.2673],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_b2b528b60f5768286d273d0ad490716e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a3241fbe010e042d1498851a3484ddae = $(`<div id="html_a3241fbe010e042d1498851a3484ddae" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Kochi (South)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:green; font-weight:bold;">75.6</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>35.5 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>72.4 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>1.1%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_b2b528b60f5768286d273d0ad490716e.setContent(html_a3241fbe010e042d1498851a3484ddae);
+            
+        
+
+        circle_marker_0d62348b23655cd535931c5f79b56639.bindPopup(popup_b2b528b60f5768286d273d0ad490716e)
+        ;
+
+        
+    
+    
+            var circle_marker_84cf3555670695150a47e1f2791e5544 = L.circleMarker(
+                [8.5241, 76.9366],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_215960f731ea407f085b51041e2ce6a6 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c44b93b11060bc607115d03a05c4b280 = $(`<div id="html_c44b93b11060bc607115d03a05c4b280" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Thiruvananthapuram (South)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:green; font-weight:bold;">74.6</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>35.1 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>68.9 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>0.0%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_215960f731ea407f085b51041e2ce6a6.setContent(html_c44b93b11060bc607115d03a05c4b280);
+            
+        
+
+        circle_marker_84cf3555670695150a47e1f2791e5544.bindPopup(popup_215960f731ea407f085b51041e2ce6a6)
+        ;
+
+        
+    
+    
+            var circle_marker_c4039c1f0c613fc8551edb609fae857d = L.circleMarker(
+                [11.0168, 76.9558],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 6, "stroke": true, "weight": 3}
+            ).addTo(marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8);
+        
+    
+        var popup_0f4a927ecfabe9787b118b1af0f0cc63 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b8aeb201e8bd16a072a28ac0d83607cb = $(`<div id="html_b8aeb201e8bd16a072a28ac0d83607cb" style="width: 100.0%; height: 100.0%;">         <div style="font-family: Arial, sans-serif; min-width: 170px;">             <h4 style="margin: 0 0 6px 0; color: #2c3e50;">Coimbatore (South)</h4>             <table style="width: 100%; font-size: 12px; border-collapse: collapse;">                 <tr><td><b>Mean AQI:</b></td><td style="color:green; font-weight:bold;">70.1</td></tr>                 <tr><td><b>Mean PM2.5:</b></td><td>34.0 µg/m³</td></tr>                 <tr><td><b>Mean PM10:</b></td><td>68.2 µg/m³</td></tr>                 <tr><td><b>Severe Days:</b></td><td>0.0%</td></tr>             </table>         </div>         </div>`)[0];
+                popup_0f4a927ecfabe9787b118b1af0f0cc63.setContent(html_b8aeb201e8bd16a072a28ac0d83607cb);
+            
+        
+
+        circle_marker_c4039c1f0c613fc8551edb609fae857d.bindPopup(popup_0f4a927ecfabe9787b118b1af0f0cc63)
+        ;
+
+        
+    
+    
+            marker_cluster_713fbe0b99cd9aa3b28812ab053c8df8.addTo(map_7a5651dbba9b95e2a9da0ecee5150ee1);
+        
+</script>
+</html>

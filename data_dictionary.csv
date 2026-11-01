@@ -1,0 +1,12 @@
+column_name,data_type,sample_value_1,sample_value_2,sample_value_3,nullable,description
+date,string (timestamp),2021-01-01 08:14:22,2023-06-15 14:30:00,2025-11-20 18:45:10,No,Timestamp of air quality observation formatted as YYYY-MM-DD HH:MM:SS. Sequential across 5 years (2021-2025).
+city,string (categorical),Delhi,Bengaluru,Mumbai,No,"Name of the Indian municipal city / monitoring zone (50 major cities across North, South, East, West, and Central India)."
+pm25,float (1 dp),112.4,34.8,245.1,No,"Particulate Matter with aerodynamic diameter <= 2.5 micrometres, measured in ug/m3. Primary driver of National AQI."
+pm10,float (1 dp),218.6,68.2,430.5,No,"Particulate Matter with aerodynamic diameter <= 10 micrometres, measured in ug/m3 (coarse inhalable dust and exhaust particles)."
+no2_ppb,float (1 dp),38.5,18.2,54.0,No,Nitrogen Dioxide concentration measured in parts per billion (ppb). Key indicator of vehicular traffic and diesel emissions.
+so2_ppb,float (1 dp),14.2,8.5,22.1,No,Sulphur Dioxide concentration measured in parts per billion (ppb). Primarily originates from thermal power generation and refining.
+co_ppm,float (2 dp),1.45,0.65,2.80,No,Carbon Monoxide concentration measured in parts per million (ppm). Emitted from incomplete combustion in engines and biomass.
+o3_ppb,float (1 dp),28.4,45.1,16.8,No,Ground-level Tropospheric Ozone concentration in parts per billion (ppb). Formed by photochemical reactions between NOx and VOCs.
+aqi,integer,274,68,395,No,"Central Pollution Control Board (CPCB) National Air Quality Index (0-500 scale): 0-50 Good, 51-100 Satisfactory, 101-200 Moderate, 201-300 Poor, 301-400 Very Poor, 401-500 Severe."
+temp_C,float (1 dp),14.2,32.5,26.8,No,Ambient surface air temperature measured in degrees Celsius (°C).
+humidity_pct,float (1 dp),72.4,41.0,88.5,No,Relative atmospheric humidity expressed as a percentage (%).
