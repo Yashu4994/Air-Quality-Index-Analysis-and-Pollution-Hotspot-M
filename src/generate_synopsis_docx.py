@@ -63,7 +63,7 @@ def create_synopsis():
     doc.add_paragraph() # spacing
     
     # Header Table
-    tbl = doc.add_table(rows=7, cols=2)
+    tbl = doc.add_table(rows=8, cols=2)
     tbl.alignment = WD_TABLE_ALIGNMENT.CENTER
     
     headers = [
@@ -73,7 +73,8 @@ def create_synopsis():
         ("Learner Name", "Yashu Rana"),
         ("Roll Number", "2300320130291"),
         ("College / Campus", "ABES EC"),
-        ("Mentor Name & Date", "Dipali Kedar Patki  |  Submission Date: November 01, 2026")
+        ("Mentor Name & Date", "Dipali Kedar Patki  |  Submission Date: November 01, 2026"),
+        ("GitHub Repository", "https://github.com/Yashu4994/Air-Quality-Index-Analysis-and-Pollution-Hotspot-M")
     ]
     
     for i, (k, v) in enumerate(headers):

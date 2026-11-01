@@ -119,7 +119,7 @@ def build_report():
         ("Mentor Name", "Dipali Kedar Patki"),
         ("Difficulty & Duration", "Intermediate  |  4 Weeks  |  Individual Project"),
         ("Submission Date", "November 01, 2026"),
-        ("GitHub Repository", "https://github.com/yashurana/Air_Quality_Index_Analysis_and_Pollution_Hotspot_Mapping")
+        ("GitHub Repository", "https://github.com/Yashu4994/Air-Quality-Index-Analysis-and-Pollution-Hotspot-M")
     ]
     for i, (k, v) in enumerate(meta_info):
         row = tbl_meta.rows[i]
@@ -274,7 +274,7 @@ def build_report():
 
     add_h2("1.3 Project Repository & Reproducibility")
     add_p(
-        "In strict adherence to academic and industry best practices, all analytical artefacts—including cleaned datasets, data dictionaries, automated generation scripts, visualization assets, interactive HTML maps, and the core analysis notebook—are openly maintained in the project GitHub repository: https://github.com/yashurana/Air_Quality_Index_Analysis_and_Pollution_Hotspot_Mapping."
+        "In strict adherence to academic and industry best practices, all analytical artefacts—including cleaned datasets, data dictionaries, automated generation scripts, visualization assets, interactive HTML maps, and the core analysis notebook—are openly maintained in the project GitHub repository: https://github.com/Yashu4994/Air-Quality-Index-Analysis-and-Pollution-Hotspot-M."
     )
 
     # 2. Objectives and Scope

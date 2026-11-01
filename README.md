@@ -25,6 +25,7 @@ The system leverages **parametric and non-parametric hypothesis testing** (Welch
 * **Mentor Name:** Dipali Kedar Patki
 * **Academic Year:** 2025–26 (III Year Industry Project)
 * **Submission Date:** November 01, 2026
+* **GitHub Repository:** [https://github.com/Yashu4994/Air-Quality-Index-Analysis-and-Pollution-Hotspot-M](https://github.com/Yashu4994/Air-Quality-Index-Analysis-and-Pollution-Hotspot-M)
 
 ---
 
@@ -146,8 +147,8 @@ HCL Career Shaper/
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/yashurana/Air_Quality_Index_Analysis_and_Pollution_Hotspot_Mapping.git
-cd Air_Quality_Index_Analysis_and_Pollution_Hotspot_Mapping
+git clone https://github.com/Yashu4994/Air-Quality-Index-Analysis-and-Pollution-Hotspot-M.git
+cd Air-Quality-Index-Analysis-and-Pollution-Hotspot-M
 ```
 
 ### 2. Set up virtual environment & install dependencies

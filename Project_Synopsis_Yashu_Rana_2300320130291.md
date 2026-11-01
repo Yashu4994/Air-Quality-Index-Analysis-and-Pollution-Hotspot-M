@@ -14,6 +14,7 @@
 | **College / Campus** | ABES EC |
 | **Mentor Name** | Dipali Kedar Patki |
 | **Submission Date** | November 01, 2026 |
+| **GitHub Repository** | [https://github.com/Yashu4994/Air-Quality-Index-Analysis-and-Pollution-Hotspot-M](https://github.com/Yashu4994/Air-Quality-Index-Analysis-and-Pollution-Hotspot-M) |
 
 ---
 
